@@ -1,14 +1,28 @@
 class Song
     attr_accessor :name, :artist
+    # attr_reader :artist
 
     @@all = []
 
     def initialize(name, artist=nil)
         @name = name
+        binding.pry
+
+        artist.add_song(self)
+        # @artist
         # if artist
-        #     Artist.all.each {|a| a.name = artist, artist.songs << }
+        #     @artist = artist.add_song(self)
+        # else
+        #     @artist
         # end
+        
+        self.save
     end
+
+    # def artist=(self)
+    #     artist.add_song(self)
+
+    # end
 
     def self.all
         @@all

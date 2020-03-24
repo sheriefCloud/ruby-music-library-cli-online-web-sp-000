@@ -1,5 +1,5 @@
 class Artist
-    attr_accessor :name
+    attr_accessor :name, :songs
 
     @@all = []
 
@@ -21,20 +21,8 @@ class Artist
     end
 
     def add_song(song)
-
-        song = Song.new(song, self)
-        @songs << self
-
-        # Songs.all.each do |song|
-        #     binding.pry
-        #     if song.name == song 
-                
-        #         if !song.artist 
-        #             song.artist = self
-        #         end
-        #     end
-        # end
-
+        self.songs << song
+        # binding.pry
     end
 
     def songs
