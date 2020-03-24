@@ -7,8 +7,8 @@ class Song
     def initialize(name, artist=nil)
         @name = name
         binding.pry
-
-        artist.add_song(self)
+        @artist
+        # artist.add_song(self)
         # @artist
         # if artist
         #     @artist = artist.add_song(self)
