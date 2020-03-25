@@ -37,6 +37,9 @@ class Song
         @@all.each {|s| r_song = s if s.name == song}
         r_song
     end
+    def self.find_or_create_by_name(name)
+        
+    end
 
     def self.create(song)
         new_song = Song.new(song)
