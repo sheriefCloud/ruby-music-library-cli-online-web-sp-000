@@ -1,28 +1,25 @@
 class Song
-    attr_accessor :name, :artist
-    # attr_reader :artist
+    attr_accessor :name
+    attr_reader :artist, :genre
 
     @@all = []
 
-    def initialize(name, artist=nil)
+    def initialize(name, artist=nil, genre=nil)
         @name = name
-        binding.pry
-        @artist
-        # artist.add_song(self)
-        # @artist
-        # if artist
-        #     @artist = artist.add_song(self)
-        # else
-        #     @artist
-        # end
-        
+        self.artist = artist if artist
+        self.genre = genre if genre
         self.save
     end
 
-    # def artist=(self)
-    #     artist.add_song(self)
+    def artist=(artist)
+        @artist = artist
+        artist.add_song(self)        
+    end
 
-    # end
+    def genre=(genre)
+        @genre = genre
+        genre.add_song(self)
+    end
 
     def self.all
         @@all
