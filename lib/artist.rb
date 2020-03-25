@@ -13,11 +13,11 @@ class Artist
     end
 
     def self.destroy_all
-        @@all = []
+        all.clear
     end
 
     def save
-        @@all << self
+        self.class.all << self
     end
 
     def add_song(song)
@@ -30,13 +30,11 @@ class Artist
     end
 
     def genres
-        g = []
-        self.songs.each {|s| g  <<  s.genre if !g.include?(s.genre) }
-        g
+        songs.map(&:genre).uniq
     end
 
     def self.create(artist)
-        new_artist = Artist.new(artist)
+        new_artist = new(artist)
         new_artist.save
         new_artist
     end

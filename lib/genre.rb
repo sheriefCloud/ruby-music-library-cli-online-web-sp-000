@@ -13,11 +13,11 @@ class Genre
     end
 
     def self.destroy_all
-        @@all = []
+        all.clear
     end
 
     def save
-        @@all << self
+        self.class.all << self
     end
     
     def songs
@@ -36,7 +36,7 @@ class Genre
     end
 
     def self.create(genre)
-        new_genre = Genre.new(genre)
+        new_genre = new(genre)
         new_genre.save
         new_genre
     end

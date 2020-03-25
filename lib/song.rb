@@ -26,24 +26,25 @@ class Song
     end
 
     def self.destroy_all
-        @@all = []
+        all.clear
     end
 
     def save
-        @@all << self
+        self.class.all << self
     end
-    def self.find_by_name(song)
-        r_song = nil
-        @@all.each {|s| r_song = s if s.name == song}
-        r_song
+
+    def self.find_by_name(name)
+        all.find {|song| song.name == name}
     end
+
     def self.find_or_create_by_name(name)
-        
+        # binding.pry
+        find_by_name(name) || create(name)
     end
 
     def self.create(song)
-        new_song = Song.new(song)
-        new_song.save
-        new_song
+        song = new(song)
+        song.save
+        song
     end
 end
